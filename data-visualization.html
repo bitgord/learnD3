@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>D3</title>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+	</head>
+
+		<body>
+
+		<script>
+
+			var dataArray = [20, 40, 50];
+
+			var canvas = d3.select("body")
+				.append("svg")
+				.attr("width", 500)
+				.attr("height", 500);
+			
+			var bars = canvas.selectAll("rect")
+				.data(dataArray)
+				.enter()
+					.append("rect")
+					.attr("width", function(data){
+						return data * 10;
+					})
+					.attr("height", 50)
+					.attr("y", function(data, index) {
+						return index * 100
+					});
+
+		</script>
+
+		</body>
+
+</html>
